@@ -14,12 +14,12 @@ const Experience = ({ timerInterval, timerRunning, start }: { timerInterval: num
     const [move, setMove] = useState(0);
     const [unfinished, setFinish] = useState(true)
     const groupRef: any = useRef();
-    const camera = useLoader(GLTFLoader as any, "/model/camera.glb", (loader) => {
+    const camera = useLoader(GLTFLoader as any, "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf", (loader) => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath("/draco/");
         loader.setDRACOLoader(dracoLoader);
     });
-    console.log(camera);
+
 
     const rotateFunction = () => {
         if (start) {
@@ -59,28 +59,28 @@ const Experience = ({ timerInterval, timerRunning, start }: { timerInterval: num
             <ambientLight intensity={1} />
 
             <group ref={groupRef}>
-                <mesh scale={50} onClick={rotateFunction}>
+                <mesh scale={3} position={[0,-1,0]} onClick={rotateFunction}>
                     <primitive object={camera.scene} />
                 </mesh>
 
                 {start ? (
                     <>
-                        <Html position={[1, 2, 4]} occlude as="div" wrapperClass="point_0">
-                            <div className="h-15 w-50 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
+                        <Html position={[1,5,1]} occlude as="div" wrapperClass="point_0">
+                            <div className="h-20 w-40 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
                                 <input type="checkbox" id="checkbox1" onClick={checkCompletion} className="h-6 w-20" />
-                                <p className="h-ful w-30 ml-5 text-base text-start">標準域レンズ</p>
+                                <p className="h-ful w-20 ml-5 text-base text-start">モニター</p>
                             </div>
                         </Html>
-                        <Html position={[2, 3, -1]} occlude as="div" wrapperClass="point_1">
-                            <div className="h-15 w-50 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
-                                <p className="h-ful w-30 mr-5 text-base text-start">ファインダー</p>
+                        <Html position={[1, 5, -7]} occlude as="div" wrapperClass="point_1">
+                            <div className="h-20 w-40 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
+                                <p className="h-ful w-20 mr-5 text-base text-start">ロゴ</p>
                                 <input type="checkbox" id="checkbox2" onClick={checkCompletion} className="h-6 w-20" />
                             </div>
                         </Html>
-                        <Html position={[0, 0, -0.5]} occlude as="div" wrapperClass="point_2">
-                            <div className="h-15 w-50 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
+                        <Html position={[-3, 0, -1]} occlude as="div" wrapperClass="point_2">
+                            <div className="h-20 w-40 bg-white flex flex-row items-center rounded-xl border-2 border-amber-900 bg-opacity-75">
                                 <input type="checkbox" id="checkbox3" onClick={checkCompletion} className="h-6 w-20" />
-                                <p className="h-ful w-30 ml-5 text-base text-start">革ストラップ</p>
+                                <p className="h-ful w-20 ml-5 text-base text-start">ストラップ</p>
                             </div>
                         </Html>
                     </>
